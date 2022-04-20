@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -26,7 +27,7 @@ public class CircuitBreakerController {
       This simulates a number of calls to an endpoint without a delay. Log some messages
     */
     @GetMapping("/no-delay/without-fallback")
-    public ResponseEntity<?> noDelayedCall() {
+    public ResponseEntity<?> noDelayedCall(@RequestBody int numberOfRuns) {
         return ResponseEntity.ok("change me");
     }
 
